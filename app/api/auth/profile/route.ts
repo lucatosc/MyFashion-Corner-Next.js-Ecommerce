@@ -26,8 +26,7 @@ export const PUT = auth(async (req) => {
     dbUser.password = password
       ? await bcrypt.hash(password, 5)
       : dbUser.password;
-    await dbUser.save();
-    return Response.json({ message: 'User has been updated' });
+    
   } catch (err: any) {
     return Response.json(
       { message: err.message },
